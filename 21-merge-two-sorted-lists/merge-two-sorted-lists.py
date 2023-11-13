@@ -25,7 +25,7 @@ class Solution:
         
         return dummy.next
 
-    # Points to Remeber
+    # Points to Remember
     # 1. First we define a dummy node and current node pointing to nothing.
     # 2. Then we start the loop for both l1 and l2.
     # 3. Now we check which first element is greater for the linked lists.
