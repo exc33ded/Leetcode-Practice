@@ -9,10 +9,10 @@ class Solution:
         low = 0
         high = len(lst_char) - 1
         while (low < high):
-            if lst_char[low] == "a" or lst_char[low] == "e" or lst_char[low] == "i" or lst_char[low] == "o" or lst_char[low] == "u":
+            if lst_char[low] in "aeiou":
                 counter1 += 1
 
-            if lst_char[high] == "a" or lst_char[high] == "e" or lst_char[high] == "i" or lst_char[high] == "o" or lst_char[high] == "u":
+            if lst_char[high] in "aeiou":
                 counter2 += 1
             low += 1
             high -= 1
