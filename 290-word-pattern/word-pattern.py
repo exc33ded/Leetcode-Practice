@@ -12,6 +12,5 @@ class Solution:
             if (i in dummy and j != dummy[i]):
                 return False
             dummy[i] = j
-            if len(set(dummy.values())) != len(set(dummy.keys())):
-                return False
+
         return True
