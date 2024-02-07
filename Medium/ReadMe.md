@@ -1,1 +1,1 @@
-collection of MEdium Type problems
+collection of Medium Type problems
