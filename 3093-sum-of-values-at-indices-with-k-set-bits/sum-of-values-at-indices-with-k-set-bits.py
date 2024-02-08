@@ -17,4 +17,4 @@ class Solution:
                 sum_ += nums[i]
 
         return sum_
-                
+            
