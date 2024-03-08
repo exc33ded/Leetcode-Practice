@@ -8,9 +8,7 @@ class Solution:
             else:
                 hm[num] += 1
 
-        max_ = 0
-        for val in hm.values():
-            max_ = max(val, max_)
+        max_ = max(hm.values())
 
         count = 0
         for val in hm.values():
