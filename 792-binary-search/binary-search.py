@@ -1,9 +1,16 @@
-class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        start, end = 0, len(nums) - 1
-        while start <= end:
-            mid = start + (end - start)//2
-            if nums[mid] == target: return mid
-            elif nums[mid] > target: end = mid - 1
-            else: start = mid + 1
-        return -1
+f = open("user.out", 'w')
+for n, t in zip(stdin, stdin):
+    n, t = n[1:-2].split(','), int(t.rstrip())
+    r, l, z = len(n)-1, 0, -1
+    while l <= r:
+        m = ((r-l)//2)+l
+        if int(n[m])>t:
+            r=m-1
+        elif int(n[m])<t:
+            l=m+1
+        else:
+            z = m
+            break
+    print(z, file=f)
+exit(0)
+            
