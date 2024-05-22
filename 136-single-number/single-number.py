@@ -6,7 +6,7 @@ class Solution:
                 hm[num] = 1
             else:
                 hm[num] += 1
-        
-        for idx,val in hm.items():
+
+        for key, val in hm.items():
             if val == 1:
-                return idx
+                return key
