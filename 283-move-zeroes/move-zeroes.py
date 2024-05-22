@@ -4,16 +4,12 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         temp = []
+        zeros = nums.count(0)
         for num in nums:
             if num != 0:
                 temp.append(num)
-        
-        for i in range(len(temp)):
+        temp[:] += [0]*zeros
+        for i in range(len(nums)):
             nums[i] = temp[i]
-        
-        nz = len(temp)
-        for i in range(nz, len(nums)):
-            nums[i] = 0
-        
-        return nums
+
         
