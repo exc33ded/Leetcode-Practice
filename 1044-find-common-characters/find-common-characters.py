@@ -1,10 +1,15 @@
 class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
-        if len(words) < 2:
-            return words
+        cnt = Counter(words[0])
+
+        for word in words:
+            cur_cnt = Counter(word)
+            for c in cnt:
+                cnt[c] = min(cnt[c], cur_cnt[c])
+        
         res = []
-        word1 = set(words[0])
-        for char in word1:
-            frequency = min([word.count(char) for word in words])
-            res += [char] * frequency
+        for c in cnt:
+            for i in range(cnt[c]):
+                res.append(c)
+
         return res
