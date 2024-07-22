@@ -1,13 +1,12 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         hm = {}
-        for x, y in zip(names, heights):
-            hm[y] = x
-        
+        for name,height in zip(names, heights):
+            hm[height] = name
+
         heights.sort()
 
-        lst = []
+        res = []
         for x in heights:
-            lst.append(hm[x])
-        return lst[::-1]
-        
+            res.append(hm[x])
+        return res[::-1]
