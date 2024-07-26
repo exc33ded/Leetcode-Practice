@@ -1,19 +1,26 @@
+import itertools
+
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
-        if digits == "": return []
+        hm = {
+            2:'abc',
+            3:'def',
+            4:'ghi',
+            5:'jkl',
+            6:'mno',
+            7:'pqrs',
+            8:'tuv',
+            9:'wxyz'
+        }
         
-        graph = {'2':['a','b','c'], '3':['d','e','f'], '4':['g','h','i'], '5':['j','k','l'], '6':['m','n','o'], '7':['p','q','r','s'], '8':['t','u','v'], '9':['w','x','y','z']}
-        
-        chars = []
-        for c in digits:
-            chars.append(graph[c])
-        
-        ans = [""]
-        for i in range(len(chars)):
-            temp = []
-            for c in ans:
-                for j in range(len(chars[i])):
-                    temp.append(c + chars[i][j])
-            ans = temp
-        
-        return ans
+        if not digits:
+            return []
+        else:
+            chars = []
+            for digit in digits:
+                chars.append(hm[int(digit)])
+            
+            comb = []
+            for c in itertools.product(*chars):
+                comb.append("".join(c))
+        return comb
