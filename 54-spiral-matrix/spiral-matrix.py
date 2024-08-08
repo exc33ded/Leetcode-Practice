@@ -1,42 +1,31 @@
 class Solution:
-    def spiralOrder(self, mat: List[List[int]]) -> List[int]:
-        ans = []
- 
-        n = len(mat) # no. of rows
-        m = len(mat[0]) # no. of columns
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        res = []
     
-        # Initialize the pointers reqd for traversal.
-        top = 0
-        left = 0
-        bottom = n - 1
-        right = m - 1
+        n = len(matrix) 
+        m = len(matrix[0]) 
 
-        # Loop until all elements are not traversed.
-        while (top <= bottom and left <= right):
-            # For moving left to right
-            for i in range(left, right + 1):
-                ans.append(mat[top][i])
+        TOP = 0
+        RIGHT = m - 1
+        LEFT = 0
+        BOTTOM = n - 1
 
-            top += 1
+        while TOP <= BOTTOM and LEFT <= RIGHT:
+            for i in range(LEFT, RIGHT+1):
+                res.append(matrix[TOP][i])
+            TOP += 1 
+        
+            for i in range(TOP, BOTTOM+1):
+                res.append(matrix[i][RIGHT])
+            RIGHT -= 1
 
-            # For moving top to bottom.
-            for i in range(top, bottom + 1):
-                ans.append(mat[i][right])
-
-            right -= 1
-
-            # For moving right to left.
-            if (top <= bottom):
-                for i in range(right, left - 1, -1):
-                    ans.append(mat[bottom][i])
-
-                bottom -= 1
-
-            # For moving bottom to top.
-            if (left <= right):
-                for i in range(bottom, top - 1, -1):
-                    ans.append(mat[i][left])
-
-                left += 1
-
-        return ans
+            if (TOP <= BOTTOM):
+                for i in range(RIGHT, LEFT-1, -1):
+                    res.append(matrix[BOTTOM][i])
+                BOTTOM -= 1
+            
+            if (LEFT <= RIGHT):
+                for i in range(BOTTOM, TOP-1, -1):
+                    res.append(matrix[i][LEFT])
+                LEFT += 1
+        return res
