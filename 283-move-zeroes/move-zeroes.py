@@ -3,13 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        temp = []
-        zeros = nums.count(0)
-        for num in nums:
-            if num != 0:
-                temp.append(num)
-        temp[:] += [0]*zeros
-        for i in range(len(nums)):
-            nums[i] = temp[i]
-
-        
+        l = 0
+        for r in range(len(nums)):
+            if nums[r] != 0:
+                nums[l], nums[r] = nums[r], nums[l]
+                l += 1
+        return nums
