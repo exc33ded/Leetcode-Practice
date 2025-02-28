@@ -1,9 +1,6 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        k = 0
-        while (True):
-            if k in nums:
-                k += 1
-            else:
-                return k
-                
+        n = len(nums)
+        max_sum = n * (n + 1) // 2
+        s = sum(nums)
+        return max_sum - s
